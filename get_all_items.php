@@ -3,7 +3,7 @@
 $server_name = "localhost";
 $user_name = "root";
 $password = "";
-$db_name = "db_one";
+$db_name = "db_one";    
 $table_name = "users";
 
 $connect = new mysqli($server_name, $user_name, $password, $db_name);
@@ -23,7 +23,9 @@ if($result->num_rows > 0){
     echo json_encode($data);
 }
 else{
-    echo json_encode(array("message" => "Empty List"));
+    $messageArray = array();
+    $messageArray[] = array("name" => "Empty List", "tel" => 0, "time" => "0", "age" => "0");
+    echo json_encode($messageArray);
 }
 
 $connect->close();
